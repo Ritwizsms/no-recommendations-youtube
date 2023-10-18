@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <style>
+        /* This is the style for the logo and the search bar */
+        #logo {
+            width: 200px;
+            height: 100px;
+            /* margin: 20px auto; */
+            text-align: center;
+        }
+
+        #search {
+            width: 600px;
+            height: 40px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+        }
+
+        #input {
+            width: 500px;
+            height: 30px;
+            border: 2px solid black;
+            padding: 5px;
+        }
+
+        #button {
+            width: 80px;
+            height: 30px;
+            border: none;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+    <div id=“logo”> <!-- This is the YouTube logo image --> <img
+            src="img/logo.png" alt="YouTube Logo"> </div>
+        </center>
+    <div id="search"> <!-- This is the search bar and the button --> <input id="input" type="text"
+            placeholder="Search…"> <button id="button" onclick="search()">Search</button> </div>
+    <script> // This is the JavaScript code for the search function 
+    function search() 
+    { // This function gets the value of the input and redirects to the YouTube search results page 
+        var query = document.getElementById("input").value; 
+        // Get the input value 
+        var url = "https://www.youtube.com/results?search_query=" + query; 
+        // Create the URL with the query 
+        window.location.href = url; // Redirect to the URL 
+    } </script>
+</body>
+
+</html>
