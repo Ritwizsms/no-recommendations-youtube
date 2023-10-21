@@ -33,25 +33,77 @@
             color: white;
             font-weight: bold;
         }
+
+        /* Add a viewport meta tag to make the page responsive */
+        /* <meta name="viewport" content="width=device-width, initial-scale=1"> */
+
+        /* Use media queries to change the layout for different screen sizes */
+
+        /* For screens smaller than 600px, make the logo smaller and the search bar full-width */
+        @media screen and (max-width: 600px) {
+            #logo {
+                width: 80%;
+                height: 40%;
+            }
+
+            #search {
+                width: 80%;
+            }
+
+            #input {
+                width: 80%;
+            }
+        }
+
+        /* For screens smaller than 400px, make the button smaller and change its position */
+        @media screen and (max-width: 400px) {
+            #button {
+                width: 60px;
+                height: 20px;
+                position: absolute;
+                right: 10px;
+            }
+        }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body style="background-color: black;">
-    <center>
-    <div id=“logo”> <!-- This is the YouTube logo image --> <img
-            src="img/logo.png" alt="YouTube Logo"> </div>
-        </center>
-    <div id="search"> <!-- This is the search bar and the button --> <input id="input" type="text"
-            placeholder="Search…"> <button id="button" onclick="search()">Search</button> </div>
+    <center class="mt-24">
+        <div id=“logo” class="mx-10 mt-5 mb-5"> <!-- This is the YouTube logo image --> <img src="img/logo.png"
+                alt="YouTube Logo"> </div>
+    </center>
+    <!-- This is the search bar and the button -->
+    <div id="search">
+        <input id="input" type="text" placeholder="Search…">
+        <button id="button" onclick="search()">Search</button>
+    </div>
+    
     <script> // This is the JavaScript code for the search function 
-    function search() 
-    { // This function gets the value of the input and redirects to the YouTube search results page 
-        var query = document.getElementById("input").value; 
-        // Get the input value 
-        var url = "https://www.youtube.com/results?search_query=" + query; 
-        // Create the URL with the query 
-        window.location.href = url; // Redirect to the URL 
-    } </script>
+        function search() { // This function gets the value of the input and redirects to the YouTube search results page 
+            var query = document.getElementById("input").value;
+            // Get the input value 
+            var url = "https://www.youtube.com/results?search_query=" + query;
+            // Create the URL with the query 
+            window.location.href = url; // Redirect to the URL 
+        } 
+    
+        // Get the input element
+        var input = document.getElementById("input");
+    
+        // Add a keydown event listener
+        input.addEventListener("keydown", function(event) {
+            // Check if the enter key was pressed
+            if (event.keyCode === 13) {
+                // Prevent the default action
+                event.preventDefault();
+                // Call the search function
+                search();
+            }
+        });
+    </script>
+    
 </body>
 
 </html>
